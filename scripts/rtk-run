@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export HOME="${HOME:-/home/ilham}"
+export PATH="$HOME/.local/bin:$PATH"
+
+if ! command -v rtk >/dev/null 2>&1; then
+  echo "rtk tidak ditemukan. Pastikan $HOME/.local/bin ada di PATH." >&2
+  exit 127
+fi
+
+exec rtk "$@"

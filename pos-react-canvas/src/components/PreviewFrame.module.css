@@ -1,0 +1,96 @@
+.root {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 0;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mini {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 4px 0 0;
+}
+
+.statusCompact {
+  justify-content: flex-start;
+}
+
+.frameWrap {
+  padding: 20px;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.frameWrap::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle at 50% 0%, rgba(76, 201, 240, 0.08), transparent 36%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.frame {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1400px);
+  height: 860px;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(24, 27, 32, 0.96), rgba(18, 21, 26, 0.98));
+  box-shadow:
+    0 28px 80px rgba(28, 27, 32, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.frameMobile {
+  width: min(420px, 100%);
+  height: 860px;
+  border-radius: 22px;
+}
+
+.frameTablet {
+  width: min(840px, 100%);
+  height: 980px;
+}
+
+.frameLaptop {
+  width: min(1280px, 100%);
+  height: 820px;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  gap: 14px;
+  color: var(--ink);
+  position: relative;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "TOKO BERSAMA Price Checker",
+  "short_name": "Price Checker",
+  "start_url": "/price-checker/",
+  "scope": "/price-checker/",
+  "display": "standalone",
+  "background_color": "#101820",
+  "theme_color": "#101820",
+  "icons": [
+    {
+      "src": "/price-checker/tokobersama-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

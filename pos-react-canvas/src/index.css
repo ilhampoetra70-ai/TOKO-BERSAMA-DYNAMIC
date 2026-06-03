@@ -1,0 +1,975 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@font-face {
+  font-family: 'DM Sans Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  src: url('@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'DM Sans Variable', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-heading: 'Inter Variable', sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(0.255 0.018 112);
+  --foreground: oklch(0.93 0.012 96);
+  --card: oklch(0.315 0.017 106);
+  --card-foreground: oklch(0.94 0.012 96);
+  --popover: oklch(0.285 0.017 108);
+  --popover-foreground: oklch(0.94 0.012 96);
+  --primary: oklch(0.74 0.145 72);
+  --primary-foreground: oklch(0.19 0.018 85);
+  --secondary: oklch(0.385 0.018 104);
+  --secondary-foreground: oklch(0.9 0.012 96);
+  --muted: oklch(0.37 0.016 108);
+  --muted-foreground: oklch(0.735 0.016 96);
+  --accent: oklch(0.43 0.045 154);
+  --accent-foreground: oklch(0.93 0.012 96);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.01 96);
+  --border: oklch(0.54 0.018 103 / 42%);
+  --input: oklch(0.42 0.018 104 / 76%);
+  --ring: oklch(0.74 0.145 72);
+  --radius: 0.625rem;
+  --chart-1: oklch(0.76 0.15 72);
+  --chart-2: oklch(0.7 0.12 168);
+  --chart-3: oklch(0.72 0.09 235);
+  --chart-4: oklch(0.67 0.13 35);
+  --chart-5: oklch(0.78 0.1 118);
+  --sidebar: oklch(0.285 0.018 108);
+  --sidebar-foreground: oklch(0.93 0.012 96);
+  --sidebar-primary: oklch(0.74 0.145 72);
+  --sidebar-primary-foreground: oklch(0.19 0.018 85);
+  --sidebar-accent: oklch(0.38 0.019 104);
+  --sidebar-accent-foreground: oklch(0.91 0.012 96);
+  --sidebar-border: oklch(0.54 0.018 103 / 42%);
+  --sidebar-ring: oklch(0.74 0.145 72);
+  --admin-accent-solid: #fbbf24;
+  --admin-accent-strong: #f59e0b;
+  --admin-accent-soft: color-mix(in oklch, #fbbf24 18%, transparent);
+  --admin-accent-border: color-mix(in oklch, #fbbf24 34%, transparent);
+  color-scheme: dark;
+}
+
+.contrast-high {
+  --background: oklch(0.19 0.012 110);
+  --foreground: oklch(0.97 0.008 96);
+  --card: oklch(0.25 0.014 108);
+  --card-foreground: oklch(0.97 0.008 96);
+  --popover: oklch(0.22 0.014 108);
+  --popover-foreground: oklch(0.97 0.008 96);
+  --primary: oklch(0.82 0.16 78);
+  --primary-foreground: oklch(0.16 0.012 85);
+  --secondary: oklch(0.31 0.014 108);
+  --secondary-foreground: oklch(0.96 0.008 96);
+  --muted: oklch(0.3 0.014 108);
+  --muted-foreground: oklch(0.83 0.012 96);
+  --accent: oklch(0.48 0.065 158);
+  --accent-foreground: oklch(0.97 0.008 96);
+  --destructive: oklch(0.66 0.21 25);
+  --destructive-foreground: oklch(0.98 0.01 96);
+  --border: oklch(0.68 0.02 103 / 50%);
+  --input: oklch(0.34 0.014 108);
+  --ring: oklch(0.82 0.16 78);
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at 16% 12%, color-mix(in oklch, var(--primary) 24%, transparent), transparent 24%),
+    radial-gradient(circle at 84% 18%, color-mix(in oklch, var(--accent) 20%, transparent), transparent 22%),
+    linear-gradient(135deg, color-mix(in oklch, var(--background) 90%, black 10%) 0%, var(--background) 42%, color-mix(in oklch, var(--background) 82%, black 18%) 100%);
+  overflow: auto;
+  color-scheme: dark;
+  scrollbar-gutter: stable both-edges;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(color-mix(in oklch, var(--foreground) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklch, var(--foreground) 5%, transparent) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.26;
+  mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: color-mix(in oklch, var(--background) 72%, black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklch, var(--primary) 58%, transparent);
+  border-radius: 999px;
+  border: 3px solid color-mix(in oklch, var(--background) 82%, black);
+}
+
+.dark {
+  --background: oklch(0.148 0.004 228.8);
+  --foreground: oklch(0.987 0.002 197.1);
+  --card: oklch(0.218 0.008 223.9);
+  --card-foreground: oklch(0.987 0.002 197.1);
+  --popover: oklch(0.218 0.008 223.9);
+  --popover-foreground: oklch(0.987 0.002 197.1);
+  --primary: oklch(0.432 0.095 166.913);
+  --primary-foreground: oklch(0.979 0.021 166.113);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.275 0.011 216.9);
+  --muted-foreground: oklch(0.723 0.014 214.4);
+  --accent: oklch(0.275 0.011 216.9);
+  --accent-foreground: oklch(0.987 0.002 197.1);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.56 0.021 213.5);
+  --chart-1: oklch(0.897 0.196 126.665);
+  --chart-2: oklch(0.768 0.233 130.85);
+  --chart-3: oklch(0.648 0.2 131.684);
+  --chart-4: oklch(0.532 0.157 131.589);
+  --chart-5: oklch(0.453 0.124 130.933);
+  --sidebar: oklch(0.218 0.008 223.9);
+  --sidebar-foreground: oklch(0.987 0.002 197.1);
+  --sidebar-primary: oklch(0.696 0.17 162.48);
+  --sidebar-primary-foreground: oklch(0.262 0.051 172.552);
+  --sidebar-accent: oklch(0.275 0.011 216.9);
+  --sidebar-accent-foreground: oklch(0.987 0.002 197.1);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.56 0.021 213.5);
+}
+
+.theme-light {
+  --background: oklch(0.975 0.005 106);
+  --foreground: oklch(0.19 0.012 90);
+  --card: oklch(0.985 0.004 106);
+  --card-foreground: oklch(0.19 0.012 90);
+  --popover: oklch(0.99 0.003 106);
+  --popover-foreground: oklch(0.19 0.012 90);
+  --primary: oklch(0.69 0.14 72);
+  --primary-foreground: oklch(0.17 0.016 84);
+  --secondary: oklch(0.93 0.006 106);
+  --secondary-foreground: oklch(0.19 0.012 90);
+  --muted: oklch(0.945 0.005 106);
+  --muted-foreground: oklch(0.46 0.014 96);
+  --accent: oklch(0.91 0.05 154);
+  --accent-foreground: oklch(0.18 0.018 90);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 96);
+  --border: oklch(0.84 0.01 100 / 74%);
+  --input: oklch(0.82 0.01 100 / 92%);
+  --ring: oklch(0.67 0.14 72);
+  --chart-1: oklch(0.72 0.14 72);
+  --chart-2: oklch(0.65 0.11 168);
+  --chart-3: oklch(0.65 0.09 235);
+  --chart-4: oklch(0.62 0.13 35);
+  --chart-5: oklch(0.7 0.1 118);
+  --sidebar: oklch(0.985 0.004 106);
+  --sidebar-foreground: oklch(0.19 0.012 90);
+  --sidebar-primary: oklch(0.69 0.14 72);
+  --sidebar-primary-foreground: oklch(0.17 0.016 84);
+  --sidebar-accent: oklch(0.93 0.006 106);
+  --sidebar-accent-foreground: oklch(0.19 0.012 90);
+  --sidebar-border: oklch(0.84 0.01 100 / 74%);
+  --sidebar-ring: oklch(0.67 0.14 72);
+  color-scheme: light;
+}
+
+.theme-light body {
+  background:
+    radial-gradient(circle at 14% 14%, color-mix(in oklch, var(--primary) 16%, transparent), transparent 24%),
+    radial-gradient(circle at 86% 16%, color-mix(in oklch, var(--accent) 18%, transparent), transparent 22%),
+    linear-gradient(135deg, oklch(0.985 0.005 106) 0%, oklch(0.96 0.006 106) 44%, oklch(0.945 0.006 108) 100%);
+  color-scheme: light;
+}
+
+html.admin-accent-amber {
+  --primary: oklch(0.82 0.16 78);
+  --primary-foreground: oklch(0.16 0.012 85);
+  --accent: oklch(0.48 0.065 158);
+  --ring: oklch(0.78 0.15 78);
+  --admin-accent-solid: #fbbf24;
+  --admin-accent-strong: #f59e0b;
+  --admin-accent-soft: color-mix(in oklch, #fbbf24 18%, transparent);
+  --admin-accent-border: color-mix(in oklch, #fbbf24 34%, transparent);
+}
+
+html.admin-accent-emerald {
+  --primary: oklch(0.72 0.16 154);
+  --primary-foreground: oklch(0.15 0.012 154);
+  --accent: oklch(0.52 0.08 186);
+  --ring: oklch(0.69 0.15 154);
+  --admin-accent-solid: #34d399;
+  --admin-accent-strong: #10b981;
+  --admin-accent-soft: color-mix(in oklch, #34d399 18%, transparent);
+  --admin-accent-border: color-mix(in oklch, #34d399 34%, transparent);
+}
+
+html.admin-accent-sky {
+  --primary: oklch(0.74 0.14 228);
+  --primary-foreground: oklch(0.17 0.014 230);
+  --accent: oklch(0.52 0.08 196);
+  --ring: oklch(0.69 0.13 228);
+  --admin-accent-solid: #38bdf8;
+  --admin-accent-strong: #0ea5e9;
+  --admin-accent-soft: color-mix(in oklch, #38bdf8 18%, transparent);
+  --admin-accent-border: color-mix(in oklch, #38bdf8 34%, transparent);
+}
+
+html.admin-accent-rose {
+  --primary: oklch(0.72 0.18 18);
+  --primary-foreground: oklch(0.18 0.014 18);
+  --accent: oklch(0.52 0.08 28);
+  --ring: oklch(0.68 0.16 18);
+  --admin-accent-solid: #fb7185;
+  --admin-accent-strong: #f43f5e;
+  --admin-accent-soft: color-mix(in oklch, #fb7185 18%, transparent);
+  --admin-accent-border: color-mix(in oklch, #fb7185 34%, transparent);
+}
+
+.mobile-admin-shell {
+  background:
+    radial-gradient(circle at 12% 8%, var(--admin-accent-soft), transparent 21rem),
+    radial-gradient(circle at 88% 18%, color-mix(in oklch, var(--admin-accent-solid) 12%, transparent), transparent 18rem),
+    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, #08121c 0%, #0e1b29 56%, #182132 100%);
+  background-size: auto, auto, 18px 18px, 18px 18px, auto;
+}
+
+.mobile-admin-header,
+.mobile-admin-bottom-nav {
+  border-color: var(--admin-accent-border);
+  background: color-mix(in oklch, #0f161d 92%, var(--admin-accent-solid) 8%);
+}
+
+.mobile-admin-brand-mark {
+  border-color: var(--admin-accent-border);
+  background: var(--admin-accent-soft);
+  color: var(--admin-accent-solid);
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--admin-accent-solid) 16%, transparent);
+}
+
+.mobile-admin-pull-indicator,
+.mobile-admin-search,
+.mobile-admin-skeleton {
+  border-color: var(--admin-accent-border);
+  background: color-mix(in oklch, #0f161d 90%, var(--admin-accent-solid) 10%);
+}
+
+.mobile-admin-skeleton {
+  animation: mobile-admin-pulse 1.35s ease-in-out infinite;
+}
+
+.mobile-admin-login {
+  background:
+    radial-gradient(circle at 50% 14%, var(--admin-accent-soft), transparent 18rem),
+    linear-gradient(180deg, #08121c 0%, #0b1320 100%);
+}
+
+.mobile-admin-login-card {
+  animation: mobile-admin-enter 360ms ease-out both;
+}
+
+.mobile-admin-chip-row {
+  scrollbar-width: none;
+}
+
+.mobile-admin-chip-row::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes mobile-admin-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobile-admin-pulse {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.theme-light .mobile-admin-shell {
+  background:
+    radial-gradient(circle at 12% 8%, var(--admin-accent-soft), transparent 21rem),
+    radial-gradient(circle at 88% 18%, color-mix(in oklch, var(--admin-accent-solid) 10%, transparent), transparent 18rem),
+    linear-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(180deg, #f8f4ea 0%, #f0eadf 58%, #e7dfd3 100%);
+}
+
+.theme-light .mobile-admin-header,
+.theme-light .mobile-admin-bottom-nav,
+.theme-light .mobile-admin-pull-indicator,
+.theme-light .mobile-admin-search,
+.theme-light .mobile-admin-skeleton {
+  background: color-mix(in oklch, #fffaf0 92%, var(--admin-accent-solid) 8%);
+}
+
+.theme-light .mobile-admin-shell :is([class*="border-white/10"], [class*="border-white/15"], [class*="border-white/20"]) {
+  border-color: color-mix(in oklch, var(--border) 78%, var(--admin-accent-solid) 22%);
+}
+
+.theme-light .mobile-admin-shell :is([class*="bg-white/[0.035]"], [class*="bg-white/[0.04]"], [class*="bg-white/[0.045]"], [class*="bg-white/[0.05]"], [class*="bg-white/5"], [class*="bg-white/6"], [class*="bg-white/8"]) {
+  background: color-mix(in oklch, #ffffff 94%, var(--admin-accent-solid) 6%);
+}
+
+.theme-light .mobile-admin-shell :is([class*="bg-[#0f161d]"], [class*="bg-[#08121c]"], [class*="bg-slate-950"], [class*="bg-slate-900"]) {
+  background: color-mix(in oklch, #ffffff 90%, var(--admin-accent-solid) 10%);
+}
+
+.theme-light .mobile-admin-shell :is([class*="text-slate-50"], [class*="text-slate-100"], [class*="text-slate-200"]) {
+  color: var(--foreground);
+}
+
+.theme-light .mobile-admin-shell :is([class*="text-slate-300"], [class*="text-slate-400"], [class*="text-slate-500"], [class*="text-muted-foreground"]) {
+  color: var(--muted-foreground);
+}
+
+.theme-light .mobile-admin-shell :is([class*="bg-amber-500/8"], [class*="bg-amber-500/10"], [class*="bg-rose-500/10"]) {
+  background: color-mix(in oklch, #ffffff 92%, var(--admin-accent-solid) 8%);
+}
+
+.theme-light .mobile-admin-shell :is([class*="border-amber-500/20"], [class*="border-rose-500/20"], [class*="border-emerald-500/20"]) {
+  border-color: color-mix(in oklch, var(--border) 78%, var(--admin-accent-solid) 22%);
+}
+
+.theme-light .mobile-admin-shell [data-slot="button"] {
+  color: var(--foreground);
+}
+
+.theme-light .mobile-admin-shell [data-slot="button"][data-variant="default"] {
+  color: var(--primary-foreground);
+}
+
+.theme-light .mobile-admin-shell [data-slot="button"][data-variant="outline"],
+.theme-light .mobile-admin-shell [data-slot="button"][data-variant="ghost"] {
+  border-color: color-mix(in oklch, var(--border) 76%, var(--admin-accent-solid) 24%);
+  background: color-mix(in oklch, #ffffff 93%, var(--admin-accent-solid) 7%);
+  color: var(--foreground);
+}
+
+.theme-light .mobile-admin-shell [data-slot="button"][data-variant="outline"]:hover,
+.theme-light .mobile-admin-shell [data-slot="button"][data-variant="ghost"]:hover {
+  background: color-mix(in oklch, #ffffff 86%, var(--admin-accent-solid) 14%);
+  color: var(--foreground);
+}
+
+.auth-shell,
+.mobile-admin-auth-screen {
+  position: relative;
+  isolation: isolate;
+  color: var(--auth-foreground);
+  color-scheme: dark;
+  --auth-foreground: #f8fafc;
+  --auth-muted: #94a3b8;
+  --auth-surface: color-mix(in oklch, #0f161d 92%, var(--admin-accent-solid) 8%);
+  --auth-surface-soft: color-mix(in oklch, #0b1118 92%, var(--admin-accent-solid) 8%);
+  --auth-border: var(--admin-accent-border);
+  --auth-field-bg: color-mix(in oklch, #0b1118 88%, var(--admin-accent-solid) 12%);
+  --auth-field-border: color-mix(in oklch, var(--admin-accent-border) 72%, transparent);
+  --auth-field-shadow: 0 18px 40px rgba(1, 5, 12, 0.18);
+  --auth-card-depth: rgba(0, 0, 0, 0.46);
+  --auth-card-rim: color-mix(in oklch, var(--admin-accent-solid) 36%, white 18%);
+  --auth-card-panel: color-mix(in oklch, var(--auth-surface-soft) 88%, black 12%);
+  --auth-message-bg: color-mix(in oklch, var(--auth-surface) 70%, var(--admin-accent-solid) 30%);
+  --auth-message-border: color-mix(in oklch, var(--auth-border) 82%, transparent);
+  --auth-message-foreground: var(--auth-foreground);
+  --auth-error-bg: color-mix(in oklch, #1a1013 80%, #ef4444 20%);
+  --auth-error-border: color-mix(in oklch, #ef4444 28%, transparent);
+  --auth-error-foreground: #ffe4e6;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09) 0%, transparent 30%, rgba(0, 0, 0, 0.22) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04), color-mix(in oklch, var(--admin-accent-solid) 7%, transparent), rgba(0, 0, 0, 0.16)),
+    linear-gradient(180deg, #11161b 0%, #070a0d 100%);
+}
+
+html[data-appearance-scope="pos"] .auth-shell {
+  --auth-foreground: oklch(0.985 0.002 197.1);
+  --auth-muted: color-mix(in oklch, var(--foreground) 58%, transparent);
+  --auth-surface: color-mix(in oklch, var(--background) 76%, var(--primary) 24%);
+  --auth-surface-soft: color-mix(in oklch, var(--background) 82%, var(--accent) 18%);
+  --auth-border: color-mix(in oklch, var(--primary) 30%, transparent);
+  --auth-field-bg: color-mix(in oklch, var(--background) 68%, black 32%);
+  --auth-field-border: color-mix(in oklch, var(--primary) 34%, transparent);
+  --auth-field-shadow: 0 12px 24px rgba(0, 0, 0, 0.26);
+  --auth-card-depth: rgba(0, 0, 0, 0.52);
+  --auth-card-rim: color-mix(in oklch, var(--primary) 34%, white 18%);
+  --auth-card-panel: color-mix(in oklch, var(--background) 72%, black 28%);
+  --auth-message-bg: color-mix(in oklch, var(--auth-surface) 72%, var(--primary) 28%);
+  --auth-message-border: color-mix(in oklch, var(--auth-border) 86%, transparent);
+  --auth-message-foreground: var(--auth-foreground);
+  --auth-error-bg: color-mix(in oklch, #1a1013 82%, #ef4444 18%);
+  --auth-error-border: color-mix(in oklch, #ef4444 30%, transparent);
+  --auth-error-foreground: #ffe4e6;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09) 0%, transparent 34%, rgba(0, 0, 0, 0.22) 100%),
+    linear-gradient(90deg, color-mix(in oklch, var(--primary) 8%, transparent), color-mix(in oklch, var(--accent) 6%, transparent), rgba(0, 0, 0, 0.16)),
+    linear-gradient(135deg,
+      color-mix(in oklch, var(--background) 76%, #d8dde2 24%) 0%,
+      color-mix(in oklch, var(--background) 84%, #aeb7c0 16%) 52%,
+      color-mix(in oklch, var(--background) 82%, black 18%) 100%);
+}
+
+html[data-appearance-scope="pos"] .auth-shell::before {
+  opacity: 0.08;
+}
+
+html[data-appearance-scope="pos"] .auth-shell::after {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.28), transparent);
+  opacity: 0.32;
+}
+
+html[data-appearance-scope="pos"] .auth-card {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 28%, rgba(0, 0, 0, 0.18) 100%),
+    linear-gradient(180deg, color-mix(in oklch, var(--background) 62%, #d4d8dd 38%) 0%, color-mix(in oklch, var(--background) 78%, #0b0d10 22%) 100%);
+  box-shadow:
+    0 34px 84px var(--auth-card-depth),
+    0 10px 26px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.30);
+}
+
+html[data-appearance-scope="pos"] .auth-card::before {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.42), color-mix(in oklch, var(--primary) 18%, transparent), rgba(0, 0, 0, 0.34)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 28%, transparent 78%, rgba(0, 0, 0, 0.08));
+  opacity: 0.82;
+}
+
+html[data-appearance-scope="pos"] .auth-card-header {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.10), transparent 38%, rgba(0, 0, 0, 0.12)),
+    linear-gradient(135deg, color-mix(in oklch, var(--background) 74%, #cfd5dc 26%), color-mix(in oklch, var(--background) 86%, black 14%) 100%);
+}
+
+html[data-appearance-scope="pos"] .auth-logo-wrap {
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.10), transparent 34%),
+    linear-gradient(135deg, color-mix(in oklch, var(--primary) 82%, white 18%), color-mix(in oklch, var(--primary) 45%, var(--accent) 55%), color-mix(in oklch, var(--accent) 72%, black 28%)),
+    color-mix(in oklch, var(--auth-surface) 88%, var(--primary) 12%);
+}
+
+.auth-shell::before,
+.mobile-admin-auth-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(color-mix(in oklch, var(--foreground) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklch, var(--foreground) 4%, transparent) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.06;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+.auth-shell::after,
+.mobile-admin-auth-screen::after {
+  content: "";
+  position: absolute;
+  inset: auto 8% 5% 8%;
+  height: 15rem;
+  pointer-events: none;
+  background: radial-gradient(circle, color-mix(in oklch, var(--admin-accent-solid) 18%, transparent), transparent 70%);
+  opacity: 0.08;
+}
+
+.auth-card,
+.mobile-admin-auth-card {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--auth-border);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.10), transparent 32%, rgba(0, 0, 0, 0.16)),
+    linear-gradient(180deg, color-mix(in oklch, var(--auth-surface) 86%, #d4d8dd 14%) 0%, color-mix(in oklch, var(--auth-surface-soft) 84%, black 16%) 100%);
+  box-shadow:
+    0 30px 74px var(--auth-card-depth),
+    0 8px 22px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(18px) saturate(1.08);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.auth-card::before,
+.mobile-admin-auth-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.34), color-mix(in oklch, var(--admin-accent-solid) 18%, transparent), rgba(0, 0, 0, 0.28)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 24%, transparent 78%, rgba(0, 0, 0, 0.08));
+  background-size: 100% 4px, 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0.72;
+}
+
+.auth-card::after,
+.mobile-admin-auth-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  pointer-events: none;
+  border: 1px solid color-mix(in oklch, var(--auth-card-rim) 44%, transparent);
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 26%, transparent 72%, rgba(255, 255, 255, 0.05)),
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.12) 100%);
+  opacity: 0.7;
+}
+
+.auth-card:hover,
+.mobile-admin-auth-card:hover {
+  border-color: color-mix(in oklch, var(--auth-border) 72%, white 28%);
+  box-shadow:
+    0 36px 92px var(--auth-card-depth),
+    0 12px 30px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.28);
+  transform: translateY(-1px);
+}
+
+.auth-card-header,
+.mobile-admin-auth-card-header {
+  border-bottom: 1px solid var(--auth-border);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 38%, rgba(0, 0, 0, 0.12)),
+    linear-gradient(135deg, color-mix(in oklch, var(--auth-surface-soft) 82%, #cfd5dc 18%), color-mix(in oklch, var(--auth-surface-soft) 90%, black 10%) 100%);
+}
+
+.auth-card-content,
+.mobile-admin-auth-card-content {
+  position: relative;
+  background:
+    linear-gradient(180deg, color-mix(in oklch, var(--auth-card-panel) 88%, white 4%), color-mix(in oklch, var(--auth-card-panel) 96%, black 4%));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 18px 42px rgba(0, 0, 0, 0.10);
+}
+
+.auth-logo-wrap,
+.mobile-admin-auth-logo-wrap {
+  border: 1px solid var(--auth-border);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.42), transparent 36%, rgba(0, 0, 0, 0.24)),
+    linear-gradient(135deg, color-mix(in oklch, var(--admin-accent-solid) 42%, #d9dde2 58%), color-mix(in oklch, var(--admin-accent-solid) 18%, #111418 82%)),
+    color-mix(in oklch, var(--auth-surface) 88%, var(--admin-accent-solid) 12%);
+  box-shadow:
+    0 0 30px color-mix(in oklch, var(--admin-accent-solid) 12%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.auth-kicker,
+.mobile-admin-auth-kicker {
+  color: var(--auth-muted);
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--auth-border);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--auth-surface-soft) 78%, var(--admin-accent-solid) 22%);
+  padding: 0.35rem 0.65rem;
+}
+
+.auth-title,
+.mobile-admin-auth-title {
+  color: var(--auth-foreground);
+}
+
+.auth-subtitle,
+.mobile-admin-auth-subtitle {
+  color: var(--auth-muted);
+}
+
+.auth-instrument-grid,
+.mobile-admin-auth-instrument-grid {
+  display: grid;
+  gap: 0.6rem;
+}
+
+@media (min-width: 640px) {
+  .auth-instrument-grid,
+  .mobile-admin-auth-instrument-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.auth-instrument,
+.mobile-admin-auth-instrument {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.4rem;
+  border: 1px solid var(--auth-border);
+  border-radius: 1rem;
+  background:
+    linear-gradient(135deg, color-mix(in oklch, var(--auth-surface) 86%, var(--admin-accent-solid) 14%), color-mix(in oklch, var(--auth-surface-soft) 90%, transparent 10%));
+  padding: 0.75rem 0.85rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+}
+
+.auth-instrument-icon,
+.mobile-admin-auth-instrument-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--auth-field-border);
+  border-radius: 0.75rem;
+  background: var(--auth-field-bg);
+  color: var(--admin-accent-solid);
+}
+
+.auth-instrument-copy,
+.mobile-admin-auth-instrument-copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.1rem;
+}
+
+.auth-instrument-label,
+.mobile-admin-auth-instrument-label {
+  color: var(--auth-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.auth-instrument-value,
+.mobile-admin-auth-instrument-value {
+  min-width: 0;
+  color: var(--auth-foreground);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.auth-label,
+.mobile-admin-auth-label {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.auth-label-text,
+.mobile-admin-auth-label-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--auth-muted);
+}
+
+.auth-field-shell,
+.mobile-admin-auth-field-shell {
+  display: flex;
+  min-height: 3.4rem;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid color-mix(in oklch, var(--auth-field-border) 90%, white 10%);
+  border-radius: 1.1rem;
+  background:
+    linear-gradient(180deg, color-mix(in oklch, var(--auth-field-bg) 100%, black 0%), color-mix(in oklch, var(--auth-field-bg) 88%, white 12%));
+  padding: 0 0.75rem;
+  box-shadow:
+    0 16px 30px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.auth-field-shell:focus-within,
+.mobile-admin-auth-field-shell:focus-within {
+  border-color: color-mix(in oklch, var(--admin-accent-solid) 52%, var(--auth-border) 48%);
+  box-shadow:
+    0 0 0 4px color-mix(in oklch, var(--admin-accent-solid) 16%, transparent),
+    0 18px 34px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+.auth-field-icon,
+.mobile-admin-auth-field-icon {
+  flex: 0 0 auto;
+  color: color-mix(in oklch, var(--auth-muted) 82%, var(--auth-foreground) 18%);
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.auth-field-shell:focus-within .auth-field-icon,
+.mobile-admin-auth-field-shell:focus-within .mobile-admin-auth-field-icon {
+  color: var(--admin-accent-solid);
+  transform: scale(1.04);
+}
+
+.auth-input,
+.mobile-admin-auth-input {
+  height: 100%;
+  min-width: 0;
+  flex: 1;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--auth-foreground);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  outline: none;
+  caret-color: var(--admin-accent-solid);
+}
+
+.auth-input::placeholder,
+.mobile-admin-auth-input::placeholder {
+  color: color-mix(in oklch, var(--auth-muted) 62%, transparent);
+}
+
+.auth-message,
+.mobile-admin-auth-message {
+  border: 1px solid var(--auth-message-border);
+  background: var(--auth-message-bg);
+  color: var(--auth-message-foreground);
+}
+
+.auth-message-error,
+.mobile-admin-auth-message-error {
+  border-color: var(--auth-error-border);
+  background: var(--auth-error-bg);
+  color: var(--auth-error-foreground);
+}
+
+.auth-helper,
+.mobile-admin-auth-helper {
+  border: 1px solid var(--auth-border);
+  background:
+    linear-gradient(135deg, color-mix(in oklch, var(--auth-surface) 90%, var(--admin-accent-solid) 10%), color-mix(in oklch, var(--auth-surface-soft) 94%, transparent 6%));
+}
+
+.auth-helper-title,
+.mobile-admin-auth-helper-title {
+  color: var(--auth-muted);
+}
+
+.auth-link,
+.mobile-admin-auth-link {
+  color: var(--auth-muted);
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.auth-link:hover,
+.mobile-admin-auth-link:hover {
+  color: var(--auth-foreground);
+}
+
+.auth-note,
+.mobile-admin-auth-note {
+  color: var(--auth-muted);
+}
+
+.theme-light .auth-shell,
+.theme-light .mobile-admin-auth-screen {
+  color-scheme: light;
+  --auth-foreground: oklch(0.19 0.012 90);
+  --auth-muted: oklch(0.46 0.014 96);
+  --auth-surface: color-mix(in oklch, #ffffff 94%, var(--admin-accent-solid) 6%);
+  --auth-surface-soft: color-mix(in oklch, #fbf7ef 92%, var(--admin-accent-solid) 8%);
+  --auth-border: color-mix(in oklch, var(--border) 76%, var(--admin-accent-solid) 24%);
+  --auth-field-bg: color-mix(in oklch, #f2efe6 72%, black 28%);
+  --auth-field-border: color-mix(in oklch, var(--border) 62%, var(--admin-accent-solid) 38%);
+  --auth-field-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  --auth-card-depth: rgba(66, 48, 21, 0.18);
+  --auth-card-rim: color-mix(in oklch, var(--admin-accent-solid) 28%, white 42%);
+  --auth-card-panel: color-mix(in oklch, #ffffff 88%, var(--admin-accent-solid) 12%);
+  --auth-message-bg: color-mix(in oklch, #ffffff 84%, var(--admin-accent-solid) 16%);
+  --auth-message-border: color-mix(in oklch, var(--auth-border) 88%, transparent);
+  --auth-message-foreground: var(--auth-foreground);
+  --auth-error-bg: color-mix(in oklch, #fff1f2 84%, #ef4444 16%);
+  --auth-error-border: color-mix(in oklch, #ef4444 28%, transparent);
+  --auth-error-foreground: #9f1239;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.70), transparent 36%, rgba(0, 0, 0, 0.10)),
+    linear-gradient(90deg, #f7f8f8, color-mix(in oklch, var(--admin-accent-solid) 5%, #d8dde2), #cfd4d9),
+    linear-gradient(180deg, #fbfcfc 0%, #d9dde1 100%);
+}
+
+.theme-light .auth-kicker,
+.theme-light .mobile-admin-auth-kicker {
+  background: color-mix(in oklch, #ffffff 88%, var(--admin-accent-solid) 12%);
+}
+
+.theme-light .auth-instrument,
+.theme-light .mobile-admin-auth-instrument {
+  background:
+    linear-gradient(135deg, color-mix(in oklch, #ffffff 92%, var(--admin-accent-solid) 8%), color-mix(in oklch, #fbf7ef 92%, transparent 8%));
+}
+
+.theme-light .auth-instrument-icon,
+.theme-light .mobile-admin-auth-instrument-icon {
+  background: color-mix(in oklch, #ffffff 90%, var(--admin-accent-solid) 10%);
+}
+
+html[data-appearance-scope="pos"].theme-light .auth-shell {
+  --auth-foreground: oklch(0.19 0.012 90);
+  --auth-muted: oklch(0.46 0.014 96);
+  --auth-surface: color-mix(in oklch, #ffffff 90%, var(--primary) 10%);
+  --auth-surface-soft: color-mix(in oklch, #fffaf0 88%, var(--accent) 12%);
+  --auth-border: color-mix(in oklch, var(--border) 72%, var(--primary) 28%);
+  --auth-field-bg: color-mix(in oklch, #ffffff 92%, var(--primary) 8%);
+  --auth-field-border: color-mix(in oklch, var(--border) 70%, var(--primary) 30%);
+  --auth-field-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  --auth-card-depth: rgba(66, 48, 21, 0.20);
+  --auth-card-rim: color-mix(in oklch, var(--primary) 26%, white 48%);
+  --auth-card-panel: color-mix(in oklch, #ffffff 88%, var(--primary) 12%);
+  --auth-message-bg: color-mix(in oklch, #ffffff 86%, var(--primary) 14%);
+  --auth-message-border: color-mix(in oklch, var(--auth-border) 88%, transparent);
+  --auth-message-foreground: var(--auth-foreground);
+  --auth-error-bg: color-mix(in oklch, #fff1f2 84%, #ef4444 16%);
+  --auth-error-border: color-mix(in oklch, #ef4444 28%, transparent);
+  --auth-error-foreground: #9f1239;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.70), transparent 36%, rgba(0, 0, 0, 0.10)),
+    linear-gradient(90deg, color-mix(in oklch, var(--primary) 5%, #f7f8f8), color-mix(in oklch, var(--accent) 4%, #d8dde2), #cfd4d9),
+    linear-gradient(135deg,
+      #fbfcfc 0%,
+      color-mix(in oklch, #e6e9ec 94%, var(--primary) 6%) 52%,
+      color-mix(in oklch, #d3d8dc 94%, black 6%) 100%);
+}
+
+html[data-appearance-scope="pos"].theme-light .auth-card {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.78), transparent 34%, rgba(0, 0, 0, 0.10)),
+    linear-gradient(180deg, color-mix(in oklch, #ffffff 90%, var(--primary) 10%) 0%, color-mix(in oklch, #d8dde2 92%, black 8%) 100%);
+}
+
+.theme-light .auth-card,
+.theme-light .mobile-admin-auth-card {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.78), transparent 34%, rgba(0, 0, 0, 0.10)),
+    linear-gradient(180deg, color-mix(in oklch, #ffffff 92%, var(--admin-accent-solid) 8%) 0%, color-mix(in oklch, #d8dde2 92%, black 8%) 100%);
+}
+
+html.ui-scale-xs {
+  font-size: 14px;
+}
+
+html.ui-scale-sm {
+  font-size: 15px;
+}
+
+html.ui-scale-md {
+  font-size: 16px;
+}
+
+html.ui-scale-lg {
+  font-size: 17px;
+}
+
+html.ui-scale-xl {
+  font-size: 18px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}

@@ -1,0 +1,86 @@
+.mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 10, 14, 0.44);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.modal {
+  width: min(100%, 520px);
+  border-radius: 14px;
+  background: #f3f4f6;
+  color: #151922;
+  box-shadow: 0 30px 80px rgba(10, 12, 16, 0.4);
+  border: 1px solid rgba(26, 29, 36, 0.09);
+  overflow: hidden;
+}
+
+.head {
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid rgba(26, 29, 36, 0.08);
+}
+
+.head h4 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+
+.head p {
+  margin: 0;
+  color: #666d7a;
+  line-height: 1.55;
+  font-size: 13px;
+}
+
+.body {
+  padding: 16px 18px 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 11px 13px;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.btnActive {
+  background: linear-gradient(180deg, #f59e0b, #b45309);
+  color: #fff;
+  border-color: transparent;
+}
+
+.noteCard {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  display: grid;
+  gap: 6px;
+}
+
+.noteCardLight {
+  background: #f8f4ea;
+}
+
+.noteCard strong {
+  font-size: 13px;
+}

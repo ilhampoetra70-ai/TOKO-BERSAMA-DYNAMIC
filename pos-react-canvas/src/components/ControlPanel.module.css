@@ -1,0 +1,122 @@
+.root {
+  min-height: 0;
+}
+
+.panelHead {
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+
+.panelBody {
+  padding: 18px;
+  min-height: 0;
+}
+
+.stack {
+  display: grid;
+  gap: 16px;
+}
+
+.controlGroup {
+  display: grid;
+  gap: 10px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.segmentedThree {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 11px 13px;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+  box-shadow: 0 10px 20px rgba(18, 18, 25, 0.04);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+.btnActive {
+  background: linear-gradient(180deg, #f59e0b, #b45309);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 16px 28px rgba(245, 158, 11, 0.22);
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.toggleRow span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.switch {
+  position: relative;
+  width: 46px;
+  height: 28px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.22);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.switch::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 8px 18px rgba(18, 18, 25, 0.15);
+  transition: transform 180ms ease;
+}
+
+.switchOn {
+  background: rgba(245, 158, 11, 0.98);
+}
+
+.switchOn::before {
+  transform: translateX(18px);
+}
+
+.slider {
+  width: 100%;
+  accent-color: var(--accent);
+}

@@ -1,0 +1,29 @@
+{
+  "name": "tokobersama",
+  "private": true,
+  "workspaces": [
+    "pos-react-canvas",
+    "local-api",
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:desktop": "npm --workspace pos-react-canvas run dev -- --host 127.0.0.1 --port 5173",
+    "dev:local-api": "npm --workspace tokobersama-local-api run dev",
+    "start:local-api": "npm --workspace tokobersama-local-api run start",
+    "migrate:local-api": "npm --workspace tokobersama-local-api run migrate:dist",
+    "build:desktop": "npm --workspace pos-react-canvas run build",
+    "build:local-api": "npm --workspace tokobersama-local-api run build",
+    "build:electron": "npm --workspace pos-react-canvas run build && npm --workspace tokobersama-local-api run build",
+    "smoke:final": "node scripts/final-smoke.cjs",
+    "smoke:portable": "node scripts/portable-smoke.cjs",
+    "package:portable": "node scripts/package-portable.cjs",
+    "prepare:local-api-portable": "node scripts/prepare-local-api-portable.cjs",
+    "package:portable-exe:raw": "npm --workspace tokobersama-pos-desktop run dist:portable",
+    "package:portable-exe": "npm run prepare:local-api-portable && npm run package:portable-exe:raw",
+    "start:electron": "npm --workspace tokobersama-pos-desktop run start"
+  },
+  "devDependencies": {
+    "electron-builder": "^26.8.1"
+  }
+}

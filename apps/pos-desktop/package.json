@@ -1,0 +1,69 @@
+{
+  "name": "tokobersama-pos-desktop",
+  "description": "Tokobersama POS desktop shell",
+  "author": "Tokobersama",
+  "private": true,
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "dist:portable": "electron-builder --win portable --x64"
+  },
+  "devDependencies": {
+    "electron": "31.7.7"
+  },
+  "build": {
+    "appId": "com.tokobersama.pos",
+    "productName": "TOKO BERSAMA POS",
+    "asar": true,
+    "directories": {
+      "output": "../../release/portable-exe"
+    },
+    "files": [
+      "main.cjs",
+      "preload.cjs",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../../pos-react-canvas/dist",
+        "to": "pos-react-canvas/dist"
+      },
+      {
+        "from": "../../release/portable-local-api",
+        "to": "local-api",
+        "filter": [
+          "dist/**",
+          "src/db/migrations/**",
+          "package.json"
+        ]
+      },
+      {
+        "from": "../../release/portable-local-api/node_modules",
+        "to": "local-api/node_modules",
+        "filter": [
+          "better-sqlite3/**",
+          "bindings/**",
+          "file-uri-to-path/**"
+        ]
+      },
+      {
+        "from": "../../vendor/cloudflared",
+        "to": "cloudflare",
+        "filter": [
+          "cloudflared.exe"
+        ]
+      }
+    ],
+    "portable": {
+      "artifactName": "TOKOBERSAMA-POS-Portable.exe"
+    },
+    "npmRebuild": false,
+    "win": {
+      "target": "portable"
+    },
+    "afterPack": "afterPack.cjs"
+  }
+}
